@@ -1,0 +1,16 @@
+
+
+### Spring Starts Here ###
+
+First book exercise is about:
+- Understand Spring modularity which means that you do not need to add the whole Spring ecosystem to your project,
+  you just need to add those pieces that you really need (in matter of dependencies).
+- Knowing how Spring context interacts and manage your instances.
+- How to add an instance object(Bean) into Spring Context to get Spring functionalities using @Bean annotation.
+
+Changes:
+
+Added 2 new Beans into ProjectConfig just to understand that Spring will also manage them.
+When you call those methods from the main class, an explicit casting is not needed since Spring
+looks for a Bean of the type you requested in its context. If a Bean does not exists, Spring
+will throw an Exception.
