@@ -21,14 +21,14 @@ public class ProjectConfig {
     }
 
     @Bean
-    Parrot parrot2(){ // identifier used by the context is parrot1 not Rick
+    Parrot parrot2(){ // identifier used by the context is parrot2 not Rick
         var p = new Parrot();
         p.setName("Rick");
         return p;
     }
 
     @Bean
-    Parrot parrot3(){ // identifier used by the context is parrot1 not Peacemaker
+    Parrot parrot3(){ // identifier used by the context is parrot3 not Peacemaker
         var p = new Parrot();
         p.setName("Peacemaker");
         return p;
