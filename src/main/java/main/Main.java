@@ -15,14 +15,13 @@ public class Main {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
         // calling the object instance (Bean) from spring context
-        Parrot p = context.getBean(Parrot.class);
-        System.out.println(p.getName());
+        //Specifying which instance we are calling by adding a new parameter before Parrot.class
+        Parrot p2 = context.getBean("parrot2", Parrot.class);
+        System.out.println(p2.getName());
 
-        String s = context.getBean(String.class);
-        System.out.println(s);
-
-        Integer n = context.getBean(Integer.class);
-        System.out.println(n);
+        // calling the last Bean
+        Parrot p3 = context.getBean("parrot3", Parrot.class);
+        System.out.println(p3.getName());
 
 
 

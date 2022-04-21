@@ -14,22 +14,23 @@ public class ProjectConfig {
     // @Bean annotations tells Spring that this method has to be called when it initializes its context
     // and add the returned value into Spring context
     @Bean
-    Parrot parrot(){
+    Parrot parrot1(){ // identifier used by the context is parrot1 not Rengoku
         var p = new Parrot();
         p.setName("Rengoku"); //just setting a name
         return p;
     }
 
-    // Adding 2 more Beans into Spring Context
-
     @Bean
-    String hello(){
-        return "Hello";
+    Parrot parrot2(){ // identifier used by the context is parrot1 not Rick
+        var p = new Parrot();
+        p.setName("Rick");
+        return p;
     }
 
     @Bean
-    Integer ten(){
-        return 10;
+    Parrot parrot3(){ // identifier used by the context is parrot1 not Peacemaker
+        var p = new Parrot();
+        p.setName("Peacemaker");
+        return p;
     }
-
 }
