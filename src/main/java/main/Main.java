@@ -18,10 +18,11 @@ public class Main {
         //Gets a reference to the Parrot bean from Spring context
         Parrot parrot = context.getBean(Parrot.class);
 
+        // print Person's name
         System.out.println("Person's name is: " + person.getName());
-
+        // print Parrot's name
         System.out.println("Parrot's name is: " + parrot.getName());
-
+        // prints person and parrot's name because of the relationship through wiring
         System.out.println("Person's parrot: " + person.getParrot());
 
     }

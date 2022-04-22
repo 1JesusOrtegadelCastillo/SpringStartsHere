@@ -2,11 +2,23 @@
 
 ### Spring Starts Here ###
 
-Using Stereotype annotations to add beans to the Spring Context.
+This chapter covers:
 
-- How to add an instance object(Bean) into Spring Context to get Spring functionalities using stereotype annotation.
+	• Establishing relationship among beans
+	• Using dependency injection
+	• Accessing the beans from the Spring context through dependency injection
+
+We will start by implementing a relationship between two beans, we'll define in the configuration class by using the
+@Bean annotation. Here are two ways you can establish the relationships among beans:
+
+	• Link beans by directly calling the methods that create them (which we'll call wiring)
+	• Enable Spring to provide us a value using a method parameter (which we'll call auto-wiring)
 
 
+In this exercise, we just added in the Person Bean (in ProjectConfig) a direct call to the Parrot Bean.
+That tells Spring that we want to establish a connection between these Beans.
 
-
-
+Output:
+Person's name is: Jose
+Parrot's name is: Donatello
+Person's parrot: Parrot name = 'Donatello'

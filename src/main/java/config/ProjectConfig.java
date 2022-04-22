@@ -20,6 +20,7 @@ public class ProjectConfig {
     public Person person(){
         Person p = new Person();
         p.setName("Jose");
+        p.setParrot(parrot()); // <-- here's the direct call to the parrot() method.
         return p;
     }
 

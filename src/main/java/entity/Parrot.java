@@ -14,8 +14,7 @@ public class Parrot {
 
     @Override
     public String toString() {
-        return "Parrot{" +
-                "name='" + name + '\'' +
-                '}';
+        return "Parrot " +
+                "name = '" + name + '\'';
     }
 }
