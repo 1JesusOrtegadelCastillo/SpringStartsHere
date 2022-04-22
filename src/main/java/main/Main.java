@@ -19,7 +19,7 @@ public class Main {
         // the bean annotated with @Primary
         Parrot p = context.getBean(Parrot.class);
         System.out.println(p); // <- this returns the default String representation of the instance taken from context
-        System.out.println(p.getName()); //<- return null because there isn't any name set to the parrot instance
+        System.out.println(p.getName()); //<- now it returns the name we set in the Parrot classs (Giuseppe)
 
 
 
