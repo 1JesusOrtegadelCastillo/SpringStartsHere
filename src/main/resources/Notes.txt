@@ -6,17 +6,25 @@ Using Stereotype annotations to add beans to the Spring Context.
 
 - How to add an instance object(Bean) into Spring Context to get Spring functionalities using stereotype annotation.
 
-On last exercises we've created three object instances of the same type and called them from their name (Bean name).
+@Component
 
-There is another option when referring to beans in the context when you have more than 1 of the same type.
-When you have multiple beans of the same type in the Spring Context, you can set a PRIMARY bean using the
-@Primary annotation. A "Primary Bean" is the one Spring Context will choose if it has multiple options (multiple
-beans of the same type) and you don't specify a name. In other words, the primary bean is simply a Spring's default
-choice.
+Let's say that you have marked the class as a component. When the app creates the Spring context, Spring
+creates an instance of the class you marked as a component and adds that instance to its context.
 
-In this example, I've added @Primary annotation to my first bean and modified the main method to just ask for a
-Bean of type Parrot. Normally this would throw an exception, but thanks to the @Primary annotation, Spring context
-knows which is the default value and it will use that.
+@ComponentScan
+
+Using this annotation over the configuration class, instruct Spring on where to find these classes you've
+marked with @Component.
+
+
+When using stereotype annotations, consider two steps:
+
+	1.   Use the stereotype annotation @Component to annotate the class for which you want Spring to add a bean to
+	     its context.
+
+	2. Since Spring doesn't search for classes annotated with stereotype annotations, use the @ComponentScan
+	    annotation to tell Spring where to look for classes annotated with stereotype annotations.
+
 
 
 

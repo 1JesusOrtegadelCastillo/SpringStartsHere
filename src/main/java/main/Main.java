@@ -18,7 +18,8 @@ public class Main {
         //Since I haven't specified which Bean I want, Spring context will return the value of
         // the bean annotated with @Primary
         Parrot p = context.getBean(Parrot.class);
-        System.out.println(p.getName());
+        System.out.println(p); // <- this returns the default String representation of the instance taken from context
+        System.out.println(p.getName()); //<- return null because there isn't any name set to the parrot instance
 
 
 
