@@ -15,8 +15,6 @@ public class Main {
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
         // calling the object instance (Bean) from spring context
-        //Since I haven't specified which Bean I want, Spring context will return the value of
-        // the bean annotated with @Primary
         Parrot p = context.getBean(Parrot.class);
         System.out.println(p); // <- this returns the default String representation of the instance taken from context
         System.out.println(p.getName()); //<- now it returns the name we set in the Parrot classs (Giuseppe)
