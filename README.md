@@ -4,8 +4,7 @@ I'll upload all Spring start here book projects and some notes in this repo with
 
 Topics
 
-1. Add object instances to spring context using @Bean annotation.
-spring-context-exercise-1 to spring-context-exercise-4
-
-2. Add object instances to spring context using Stereotype annotation.
-spring-context-exercise-5 to 
+1. Add object instances (Beans) to Spring context using @Bean annotation.
+2. Add object instances (Beans) to Spring context using Stereotype annotation. 
+3. Add object instances (Beans) to Spring context programmatically.
+4. Spring Context relationships among Beans (Wiring, Auto-wiring)
