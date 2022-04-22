@@ -3,6 +3,7 @@ package config;
 import entity.Parrot;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Primary;
 
 //2 - Creating a configuration file
 
@@ -14,6 +15,7 @@ public class ProjectConfig {
     // @Bean annotations tells Spring that this method has to be called when it initializes its context
     // and add the returned value into Spring context
     @Bean(name = "anime")
+    @Primary
     Parrot parrot1(){ // identifier used by the context is parrot1 not Rengoku
         var p = new Parrot();
         p.setName("Rengoku"); //just setting a name
