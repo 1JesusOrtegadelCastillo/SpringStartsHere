@@ -2,31 +2,27 @@ package main;
 
 import config.ProjectConfig;
 import entity.Parrot;
+import entity.Person;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import java.util.function.Supplier;
 
 public class Main {
 
     public static void main(String[] args){
 
-        //3 - Setting up spring context
-
-        // Defining Spring context, and modifying Spring instantiation to use ProjectConfig.class
-        //configuration when context is initialized
+        //creating an instance of the Spring context based on the configuration of ProjectConfig.class
         var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
-        Parrot x = new Parrot(); // creating the instance we want to add to Spring context.
-        x.setName("Timmy"); // setting name
+        //Gets a reference to the Person bean from Spring context
+        Person person = context.getBean(Person.class);
 
-        Supplier<Parrot> parrotSupplier = () -> x; // defining a supplier
+        //Gets a reference to the Parrot bean from Spring context
+        Parrot parrot = context.getBean(Parrot.class);
 
-        context.registerBean("parrot1", Parrot.class, parrotSupplier); //calling register bean to add instance to Spring context.
+        System.out.println("Person's name is: " + person.getName());
 
-        //we can also set a primary bean just like with the @Primary annotation:
-        //context.registerBean("parrot2", Parrot.class, parrotSupplier, bc -> bc.setPrimary(true));
+        System.out.println("Parrot's name is: " + parrot.getName());
 
-        Parrot p = context.getBean(Parrot.class); // referring to the Parrot bean and putting it inside a variable
-        System.out.println(p.getName()); // printing its name in the console to verify it's working
+        System.out.println("Person's parrot: " + person.getParrot());
+
     }
 }
