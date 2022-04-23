@@ -17,10 +17,10 @@ public class ProjectConfig {
     }
 
     @Bean
-    public Person person(){
+    public Person person(Parrot parrot){ // <- Dependency Injection (receiving a parameter of type Parrot)
         Person p = new Person();
         p.setName("Jose");
-        p.setParrot(parrot()); // <-- here's the direct call to the parrot() method.
+        p.setParrot(parrot); // <-- setting the reference of the parameter (Parrot) to return Person attribute
         return p;
     }
 
