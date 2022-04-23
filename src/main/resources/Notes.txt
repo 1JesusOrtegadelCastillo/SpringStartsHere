@@ -14,17 +14,16 @@ We will start by implementing a relationship between two beans, we'll define in 
 	• Link beans by directly calling the methods that create them (which we'll call wiring)
 	• Enable Spring to provide us a value using a method parameter (which we'll call auto-wiring)
 
+Wiring by method parameter.
 
-It's actually quite easy to test this behavior. Just add a non-args constructor to the Parrot class and
-print a message into the console from it. How many times will the message be printed in the console?
-If the behavior is correct, you'll see the message only once.
+Instead of directly calling the method that defines the bean we wish to refer to, we add a parameter to the method of 
+the corresponding type object, and we rely on Spring to provide us a value through that parameter.
 
-Output:
+This approach is a bit more flexible than the one we discussed.
 
-Parrot created
-Person's name is: Jose
-Parrot's name is: Donatello
-Person's parrot: Parrot name = 'Donatello'
-
-So, as you can see, the Parrot was created just once.
+With this approach, it doesn't matter if the bean we want to refer to is defined with a method annotated with @Bean or 
+using a stereotype annotation like @Configuration. However it's not necessary this flexibility that makes developers 
+use this approach; it's mostly the taste of each developer that determines which approach they use when working with 
+beans. I wouldn't say one is better than the other, but you'll encounter both approaches in real-world scenarios, so 
+you need to understand and be able to use them. 
 
