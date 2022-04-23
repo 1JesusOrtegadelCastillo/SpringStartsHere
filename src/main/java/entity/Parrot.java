@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Parrot {
 
-    private String name = "Tostito";
+    private String name = "Giyu";
 
     public String getName(){
         return name;

@@ -15,26 +15,17 @@ We will start by implementing a relationship between two beans, we'll define in 
 	• Enable Spring to provide us a value using a method parameter (which we'll call auto-wiring)
 
 
-@Autowired annotation
+@Autowired to inject values through the constructor
 
-Here we'll discuss another approach used to create a link between beans in the Spring context. You'll often encounter
-this technique, which refers to an annotation named @Autowired, when you can change the class for which you define the
-bean (when this class is not part of a dependency). Using the @Autowired annotation, we mark an object's property where
-we want Spring to inject a value from the context, and we mark this intention directly in the class that defines the
-object that needs the dependency. This approach makes easier to see the relationship between the two objects than the
-alternatives we've discussed before.
+If you are using Spring 4.3 and above, you can omit the @Autowired annotation over the constructor and do this:
 
-There are 3 ways we can use @Autowired:
+    public Person(Parrot parrot){
+        this.parrot = parrot;
+    }
 
-	• Injecting the value in the field of the class, which you usually find in examples and proofs of concepts.
-	• Injecting the value through the constructor parameters of the class, approach that you'll use most often in
-	  real-world scenarios.
-	• Injecting the value through the setter, which you'll rarely use in production code.
-
-
-Using @Autowired to inject the values through the class fields
+and it's going to work.
 
 Output:
 
-Person's name: Miguel
-Person parrot's name: Parrot 'Tostito'
+Person's name: Tengen
+Person parrot's name: Parrot 'Giyu'
