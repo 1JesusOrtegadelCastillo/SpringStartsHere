@@ -7,12 +7,8 @@ import org.springframework.stereotype.Component;
 public class Person {
     private String name = "Tengen";
 
-    private final Parrot parrot; // <- we make the field final to ensure its value cannot change after initialization
+    private Parrot parrot;
 
-    @Autowired // if you are using Spring 4.3 and above you can omit the @Autowired annotation
-    public Person(Parrot parrot){ // <- DI using @Autowired through the constructor
-        this.parrot = parrot;
-    }
 
     public String getName() {
         return name;
@@ -25,4 +21,10 @@ public class Person {
     public Parrot getParrot() {
         return parrot;
     }
+
+    @Autowired // Requesting Spring for a bean to inject from its context
+    public void setParrot(Parrot parrot){ // <- Injecting Parrot bean into the setter
+        this.parrot = parrot;
+    }
+
 }
