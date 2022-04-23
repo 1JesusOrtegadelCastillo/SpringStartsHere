@@ -15,10 +15,16 @@ We will start by implementing a relationship between two beans, we'll define in 
 	• Enable Spring to provide us a value using a method parameter (which we'll call auto-wiring)
 
 
-In this exercise, we just added in the Person Bean (in ProjectConfig) a direct call to the Parrot Bean.
-That tells Spring that we want to establish a connection between these Beans.
+It's actually quite easy to test this behavior. Just add a non-args constructor to the Parrot class and
+print a message into the console from it. How many times will the message be printed in the console?
+If the behavior is correct, you'll see the message only once.
 
 Output:
+
+Parrot created
 Person's name is: Jose
 Parrot's name is: Donatello
 Person's parrot: Parrot name = 'Donatello'
+
+So, as you can see, the Parrot was created just once. 
+
