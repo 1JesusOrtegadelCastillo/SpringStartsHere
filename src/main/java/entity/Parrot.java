@@ -1,12 +1,11 @@
 package entity;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Parrot {
 
-    private String name;
-
-    public Parrot(){
-        System.out.println("Parrot created"); // <- no-args constructor to test
-    }
+    private String name = "Tostito";
 
     public String getName(){
         return name;
@@ -19,6 +18,6 @@ public class Parrot {
     @Override
     public String toString() {
         return "Parrot " +
-                "name = '" + name + '\'';
+                "'" + name + '\'';
     }
 }

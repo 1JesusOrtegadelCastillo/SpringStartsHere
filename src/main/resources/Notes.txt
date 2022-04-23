@@ -15,16 +15,26 @@ We will start by implementing a relationship between two beans, we'll define in 
 	• Enable Spring to provide us a value using a method parameter (which we'll call auto-wiring)
 
 
-It's actually quite easy to test this behavior. Just add a non-args constructor to the Parrot class and
-print a message into the console from it. How many times will the message be printed in the console?
-If the behavior is correct, you'll see the message only once.
+@Autowired annotation
+
+Here we'll discuss another approach used to create a link between beans in the Spring context. You'll often encounter
+this technique, which refers to an annotation named @Autowired, when you can change the class for which you define the
+bean (when this class is not part of a dependency). Using the @Autowired annotation, we mark an object's property where
+we want Spring to inject a value from the context, and we mark this intention directly in the class that defines the
+object that needs the dependency. This approach makes easier to see the relationship between the two objects than the
+alternatives we've discussed before.
+
+There are 3 ways we can use @Autowired:
+
+	• Injecting the value in the field of the class, which you usually find in examples and proofs of concepts.
+	• Injecting the value through the constructor parameters of the class, approach that you'll use most often in
+	  real-world scenarios.
+	• Injecting the value through the setter, which you'll rarely use in production code.
+
+
+Using @Autowired to inject the values through the class fields
 
 Output:
 
-Parrot created
-Person's name is: Jose
-Parrot's name is: Donatello
-Person's parrot: Parrot name = 'Donatello'
-
-So, as you can see, the Parrot was created just once.
-
+Person's name: Miguel
+Person parrot's name: Parrot 'Tostito'
