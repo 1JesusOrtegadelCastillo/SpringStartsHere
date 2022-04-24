@@ -2,30 +2,17 @@
 
 ### Spring Starts Here ###
 
-This chapter covers:
+Circular Dependency
 
-	• Establishing relationship among beans
-	• Using dependency injection
-	• Accessing the beans from the Spring context through dependency injection
+A circular dependency, Spring needs to create a bean of type Parrot. But because Parrot has a dependency Person,
+Spring needs firsts to create a Person. However, to create a Person, Spring already needs to have built Parrot.
+Spring is now in a deadlock. It cannot create a Parrot because it needs a Person, and it cannot create a Person
+because it needs a Parrot.
 
-We will start by implementing a relationship between two beans, we'll define in the configuration class by using the
-@Bean annotation. Here are two ways you can establish the relationships among beans:
-
-	• Link beans by directly calling the methods that create them (which we'll call wiring)
-	• Enable Spring to provide us a value using a method parameter (which we'll call auto-wiring)
-
-
-@Autowired to inject values through the constructor
-
-If you are using Spring 4.3 and above, you can omit the @Autowired annotation over the constructor and do this:
-
-    public Person(Parrot parrot){
-        this.parrot = parrot;
-    }
-
-and it's going to work.
 
 Output:
 
-Person's name: Tengen
-Person parrot's name: Parrot 'Giyu'
+Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'person'
+defined in file ... Unsatisfied dependency expressed through constructor parameter 0;
+nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name
+'parrot': Requested bean is currently in creation: Is there an unresolvable circular reference?

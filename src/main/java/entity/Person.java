@@ -5,26 +5,21 @@ import org.springframework.stereotype.Component;
 
 @Component // <- we instruct Spring to create an instance of the class and add it to its context.
 public class Person {
-    private String name = "Tengen";
 
-    private Parrot parrot;
+    private String name = "Tomassinho";
 
+    private final Parrot parrot;
+
+    @Autowired
+    public Person(Parrot parrot){ // to create the Person instance, Spring needs to have a Parrot bean.
+        this.parrot = parrot;
+    }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
     public Parrot getParrot() {
         return parrot;
     }
-
-    @Autowired // Requesting Spring for a bean to inject from its context
-    public void setParrot(Parrot parrot){ // <- Injecting Parrot bean into the setter
-        this.parrot = parrot;
-    }
-
 }
