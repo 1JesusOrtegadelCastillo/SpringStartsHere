@@ -2,17 +2,16 @@
 
 ### Spring Starts Here ###
 
-Circular Dependency
+Choosing from multiple beans in the Spring Context
 
-A circular dependency, Spring needs to create a bean of type Parrot. But because Parrot has a dependency Person,
-Spring needs firsts to create a Person. However, to create a Person, Spring already needs to have built Parrot.
-Spring is now in a deadlock. It cannot create a Parrot because it needs a Person, and it cannot create a Person
-because it needs a Parrot.
+One way to instruct Spring to provide you a specific instance from its context, when the context contains
+more than one instance of the same type, is to rely on the name of this instance. Just name the parameter
+the same as the instance you'd like Spring to provide you.
 
 
 Output:
 
-Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'person'
-defined in file ... Unsatisfied dependency expressed through constructor parameter 0;
-nested exception is org.springframework.beans.factory.BeanCurrentlyInCreationException: Error creating bean with name
-'parrot': Requested bean is currently in creation: Is there an unresolvable circular reference?
+Parrot created
+Parrot created
+Person's name: Leonidas
+Person parrot's name: Parrot: Tom
