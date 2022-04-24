@@ -1,13 +1,13 @@
 package config;
 
 import entity.Parrot;
-import entity.Person;
-import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 //2 - Creating a configuration file
 @Configuration
+@ComponentScan(basePackages = "/entity/")
 public class ProjectConfig {
 
     @Bean
@@ -23,14 +23,4 @@ public class ProjectConfig {
         p.setName("Tom"); // <--- here's Tom
         return p;
     }
-
-    @Bean
-    public Person person (
-            @Qualifier("parrot2") Parrot parrot){ // Using @Qualifier you specify a specific bean from the context.
-        Person p = new Person();
-        p.setName("Leonidas");
-        p.setParrot(parrot);
-        return p;
-    }
-
 }
